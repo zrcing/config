@@ -1,0 +1,28 @@
+{
+	"name": "planfox/config",
+	"description": "The Planfox Config Component.",
+	"keywords": [],
+	"license": "MIT",
+	"homepage": "https://github.com/planfox/config",
+	"support": {
+		"issues": "https://github.com/planfox/config/issues",
+		"source": "https://github.com/planfox/config"
+	},
+	"authors": [
+		{
+			"name": "Gary Liao",
+			"email": "liaogling@gmail.com"
+		}
+	],
+	"require": {
+		"php": ">=5.3"
+	},
+	"autoload": {
+		"psr-4": {
+			"Planfox\\Component\\Config\\": ""
+		},
+		"exclude-from-classmap": [
+			"/Tests/"
+		]
+	}
+}
