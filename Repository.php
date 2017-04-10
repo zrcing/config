@@ -24,6 +24,12 @@ class Repository implements RepositoryInterface
         }
     }
 
+    /**
+     * set directory of configuration
+     *
+     * @param string $directory Absolute path
+     * @return mixed
+     */
     public function setDirectory($directory)
     {
         $this->directory = $directory;
@@ -33,7 +39,9 @@ class Repository implements RepositoryInterface
     }
 
     /**
-     * 初始化配置信息
+     * Initialize
+     *
+     * @throws Exception
      */
     protected function init()
     {
@@ -49,11 +57,23 @@ class Repository implements RepositoryInterface
         }
     }
 
+    /**
+     * Get directory of configuration
+     *
+     * @return mixed
+     */
     public function getDirectory()
     {
         return $this->directory;
     }
 
+    /**
+     *
+     * Get config value
+     *
+     * @param null|string $key
+     * @return mixed
+     */
     public function get($key = null)
     {
         if (is_null($key)) {
@@ -69,6 +89,14 @@ class Repository implements RepositoryInterface
         return $r;
     }
 
+    /**
+     * Set config value
+     *
+     * @param string $key
+     * @param mixed $vars
+     * @return mixed
+     * @throws
+     */
     public function set($key, $vars)
     {
         if (is_null($key) || $key == '') {

@@ -37,6 +37,7 @@ interface RepositoryInterface
      * @param string $key
      * @param mixed $vars
      * @return mixed
+     * @throws
      */
     public function set($key, $vars);
 }
