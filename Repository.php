@@ -6,7 +6,7 @@ namespace Planfox\Component\Config;
 
 use Planfox\Component\Config\Exception\Exception;
 
-class Repository
+class Repository implements RepositoryInterface
 {
     /**
      * @var string config root directory
@@ -14,6 +14,15 @@ class Repository
     protected $directory;
 
     protected $configures = [];
+
+
+    public function __construct($directory = null)
+    {
+        if (! is_null($directory)) {
+            $this->directory = $directory;
+            $this->init();
+        }
+    }
 
     public function setDirectory($directory)
     {
