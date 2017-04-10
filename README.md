@@ -1,6 +1,6 @@
 ## Planfox
 
-The Planfox Config Component.
+The Planfox Config Component is particularly simple to use a directory as a configuration file.
 
 ### License
 
