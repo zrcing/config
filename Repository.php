@@ -29,6 +29,7 @@ class Repository implements RepositoryInterface
      *
      * @param string $directory Absolute path
      * @return mixed
+     * @throws
      */
     public function setDirectory($directory)
     {
@@ -41,12 +42,12 @@ class Repository implements RepositoryInterface
     /**
      * Initialize
      *
-     * @throws Exception
+     * @throws
      */
     protected function init()
     {
         if (is_null($this->directory)) {
-            throw new Exception('Can\'t set root directory of configure');
+            throw new Exception('The configure directory does not exist.');
         }
         $files = glob( $this->directory . DIRECTORY_SEPARATOR ."*.php");
         foreach ($files as $file) {
@@ -58,7 +59,7 @@ class Repository implements RepositoryInterface
     }
 
     /**
-     * Get directory of configuration
+     * Get the path of configure directory
      *
      * @return mixed
      */
@@ -100,7 +101,7 @@ class Repository implements RepositoryInterface
     public function set($key, $vars)
     {
         if (is_null($key) || $key == '') {
-            throw new Exception('Can\'t set configure, the key was wrong!');
+            throw new Exception('The key does not exist.');
         }
         $info = explode('.', $key);
         $access = array_reduce($info, function ($r, $a) {
